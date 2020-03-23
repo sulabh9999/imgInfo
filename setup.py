@@ -12,7 +12,7 @@ if os.path.isfile(requirementPath):
 
 setup(
 	name='imgInfo',
-	version='0.2',
+	version='0.1',
 	description='Get all info of image in both command line and python API',
 	license='Apache',
 	author='Sulabh Shukla',

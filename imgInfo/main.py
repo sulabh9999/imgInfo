@@ -25,7 +25,8 @@ def info(img):
 		ImgDtls = collections.namedtuple('ImgDtls',['height','width','bands', 'size']) 
 		return ImgDtls(im.height, im.width, len(im.getbands()), convert_byte(os.path.getsize(img))) 
 	except IOError as e:
-		print('Invalid image file')
+		print(f'Invalid image file: "{img}"')
+		return None
 
 
 def run(args):
@@ -33,11 +34,12 @@ def run(args):
 	run: function to get all info from image used by parser
 	"""
 	imgDtls = info(args.imgName)
-	print('Image:', os.path.basename(args.imgName))
-	print('Width:', imgDtls.width)
-	print('Height:', imgDtls.height)
-	print('Bands:', imgDtls.bands)
-		 
+	if imgDtls:
+		print('Image:', os.path.basename(args.imgName))
+		print('Width:', imgDtls.width)
+		print('Height:', imgDtls.height)
+		print('Bands:', imgDtls.bands)
+
 
 def main():
 	if not sys.version_info >= (3, 5):
