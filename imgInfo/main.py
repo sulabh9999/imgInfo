@@ -22,7 +22,7 @@ def info(img):
 	"""
 	try:
 		im=Image.open(img)
-		ImgDtls = collections.namedtuple('imgDtls',['height','width','bands', 'size']) 
+		ImgDtls = collections.namedtuple('ImgDtls',['height','width','bands', 'size']) 
 		return ImgDtls(im.height, im.width, len(im.getbands()), convert_byte(os.path.getsize(img))) 
 	except IOError as e:
 		print('Invalid image file')
