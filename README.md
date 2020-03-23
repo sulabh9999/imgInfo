@@ -37,10 +37,13 @@ import imgInfo.main as im
 result = im.info('image.jpg')
 print(result)
 ```
+
 [pillow](https://pypi.org/project/Pillow/) - The framework used to read image
+
 
 ## Contributing
 For improvement pull requests are wellcome.
+
 
 ### License
 Apache
