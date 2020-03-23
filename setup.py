@@ -12,8 +12,8 @@ if os.path.isfile(requirementPath):
 
 setup(
 	name='imgInfo',
-	version='1.0',
-	description='get all info of given image in both command line and python API',
+	version='0.2',
+	description='Get all info of image in both command line and python API',
 	license='Apache',
 	author='Sulabh Shukla',
 	author_email='sulabh9999@gmail.com',
@@ -23,13 +23,13 @@ setup(
 	install_requires=install_requires,
 	classifiers=[
 		'Development Status :: 4 - Beta',
-		'Topic :: Software Development :: Build Tools',
-		'Programming Language :: Python :: 3.6',
+		'Topic :: Software Development :: Build Tools'
 	],
 	entry_points ={ 
         'console_scripts': [ 
             'imginfo = imgInfo.main:main'
         ] 
-    }
+    },
+    python_requires='>=3.5'
     # packages=['imgInfo']
 )

@@ -40,8 +40,8 @@ def run(args):
 		 
 
 def main():
-	if not sys.version_info >= (3, 6):
-		sys.exit("ERROR: imgInfo needs Python 3.6 or later.")
+	if not sys.version_info >= (3, 5):
+		sys.exit("ERROR: imgInfo needs Python 3.5 or later.")
 
 	if len(sys.argv) == 1:
 		print("imgInfo: imgInfo command line tools")
