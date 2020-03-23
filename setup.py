@@ -9,10 +9,12 @@ if os.path.isfile(requirementPath):
     with open(requirementPath) as f:
         install_requires = f.read().splitlines()
 
+with open("README.md", "r") as fh:
+    long_description = fh.read()
 
 setup(
 	name='imgInfo',
-	version='0.1',
+	version='0.4',
 	description='Get all info of image in both command line and python API',
 	license='Apache',
 	author='Sulabh Shukla',
@@ -21,6 +23,8 @@ setup(
 	download_url='https://github.com/sulabh9999/imgInfo',
 	maintainer_email='sulabh9999@gmail.com',
 	install_requires=install_requires,
+	long_description=long_description,
+    long_description_content_type="text/markdown",
 	classifiers=[
 		'Development Status :: 4 - Beta',
 		'Topic :: Software Development :: Build Tools'
