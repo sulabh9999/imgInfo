@@ -2,6 +2,7 @@ import argparse
 import sys
 import os
 from PIL import Image
+import collections
 
 
 def convert_byte(num):
@@ -21,12 +22,8 @@ def info(img):
 	"""
 	try:
 		im=Image.open(img)
-		print('Image:', img)
-		print('Width:', im.width)
-		print('Height:', im.height)
-		print('Bands:', len(im.getbands()))
-		print('Total size:', convert_byte(1))
-		# do stuff
+		ImgDtls = collections.namedtuple('imgDtls',['height','width','bands', 'size']) 
+		return ImgDtls(im.height, im.width, len(im.getbands()), convert_byte(os.path.getsize(img))) 
 	except IOError as e:
 		print('Invalid image file')
 
@@ -35,7 +32,11 @@ def run(args):
 	"""
 	run: function to get all info from image used by parser
 	"""
-	info(args.img)
+	imgDtls = info(args.imgName)
+	print('Image:', os.path.basename(args.imgName))
+	print('Width:', imgDtls.width)
+	print('Height:', imgDtls.height)
+	print('Bands:', imgDtls.bands)
 		 
 
 def main():
@@ -48,7 +49,8 @@ def main():
 		sys.exit()
 
 	parser = argparse.ArgumentParser(prog='imgInfo', description='Get information abount given image file')
-	parser.add_argument('img', help='image help')
+	parser.add_argument('imgName', help='Name of an image')
+	# parser.add_argument('-s', action='store_true', help='To show image shape as tupple')
 	args = parser.parse_args()
 	run(args)
 
