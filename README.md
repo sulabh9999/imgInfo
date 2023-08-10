@@ -31,6 +31,16 @@ Height: 1024
 Bands: 4
 ```
 
+show metadata
+```sh
+$ imginfo image.jpg -m
+Image: image.jpg
+Width: 1024
+Height: 1024
+Bands: 4
+Metadata: {'jfif': 257, 'jfif_version': (1, 1), 'jfif_unit': 0, 'jfif_density': (1, 1)}
+```
+
 python3 API
 ```python
 import imgInfo.main as im
