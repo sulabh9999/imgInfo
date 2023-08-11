@@ -22,8 +22,8 @@ def info(img):
 	"""
 	try:
 		im=Image.open(img)
-		ImgDtls = collections.namedtuple('ImgDtls',['height','width','bands', 'size']) 
-		return ImgDtls(im.height, im.width, len(im.getbands()), convert_byte(os.path.getsize(img))) 
+		ImgDtls = collections.namedtuple('ImgDtls',['height','width','bands', 'size', 'meta_data']) 
+		return ImgDtls(im.height, im.width, len(im.getbands()), convert_byte(os.path.getsize(img)), im.info) 
 	except IOError as e:
 		print(f'Invalid image file: "{img}"')
 		return None
@@ -39,6 +39,9 @@ def run(args):
 		print('Width:', imgDtls.width)
 		print('Height:', imgDtls.height)
 		print('Bands:', imgDtls.bands)
+	
+		if args.metadata:
+			print('Metadata:', imgDtls.meta_data)
 
 
 def main():
@@ -53,6 +56,7 @@ def main():
 	parser = argparse.ArgumentParser(prog='imgInfo', description='Get information abount given image file')
 	parser.add_argument('imgName', help='Name of an image')
 	# parser.add_argument('-s', action='store_true', help='To show image shape as tupple')
+	parser.add_argument('-m', '--metadata', nargs='?', const='show_metadata', help='Show image metadata')
 	args = parser.parse_args()
 	run(args)
 
