@@ -2,7 +2,7 @@
 
 [![](https://img.shields.io/badge/python-3.5-brightgreen)]() [![](https://img.shields.io/badge/PILLOW-7.0-orange)](https://github.com/python-pillow/Pillow) [![](https://img.shields.io/badge/Linux%20build-passing-brightgreen)](https://github.com/python-pillow/Pillow)
 
-Get all information of image, supported imges types are png, jpej, tif etc. Tool supports API and Command line interface.
+Get all information of image, supported imges types are png, jpeg, tif etc. Tool supports API and Command line interface.
 
 
 ### Installation
